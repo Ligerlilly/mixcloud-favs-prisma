@@ -1,0 +1,21 @@
+type User {
+  id: ID! @unique
+  name: String!
+}
+
+type DJ {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  username: String
+  display_name: String
+  feed_url: String
+  cloudCasts: [CloudCast!]!
+}
+
+type CloudCast{
+  url: String
+  title: String
+  embedUrl: String
+  created_time: String
+}

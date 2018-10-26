@@ -1,0 +1,25 @@
+# import CloudCast from './generated/prisma.graphql'
+# import DJ from './generated/prisma.graphql'
+
+type Query {
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  dJs(where: DJWhereInput, orderBy: DJOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [DJ]!
+  cloudCasts(username: String): [CloudCast!]!
+  user(where: UserWhereUniqueInput!): User
+  dJ(where: DJWhereUniqueInput!): DJ
+  cloudCast(where: CloudCastWhereUniqueInput!): CloudCast
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  dJsConnection(where: DJWhereInput, orderBy: DJOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DJConnection!
+  cloudCastsConnection(where: CloudCastWhereInput, orderBy: CloudCastOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CloudCastConnection!
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+}
+
+type Mutation {
+  createDJ(data: DJCreateInput!): DJ!
+  deleteDJ(where: DJWhereUniqueInput!): DJ
+}
